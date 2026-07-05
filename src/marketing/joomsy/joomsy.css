@@ -1,0 +1,897 @@
+/* =============================================================
+   joomsy.css — Joomsy's visual language, read live off joomsy.com
+   (2026-07-05), scoped to `.jm-root`. Tokens first, then the page.
+
+   The extracted brand:
+     yellow #FFCC00 · ink #111827 · green #7DB74B / #6EA642
+     orange #F97316 · blue #4096FF · purple #5856D6
+     cream pill gradient #FEF3C7 → #FFF7ED → #FEF3C7
+     Roboto, 800 headlines (56px hero / 48px sections), 400/500 body
+     warm near-white surfaces with soft pastel radial washes
+   ============================================================= */
+
+.jm-root {
+  --jm-yellow: #ffcc00;
+  --jm-ink: #111827;
+  --jm-ink-soft: #4b5563;
+  --jm-gray: #6b7280;
+  --jm-green: #7db74b;
+  --jm-green-deep: #6ea642;
+  --jm-orange: #f97316;
+  --jm-blue: #4096ff;
+  --jm-purple: #5856d6;
+  --jm-bg: #fdfcf8;
+  --jm-card: #ffffff;
+  --jm-cream-grad: linear-gradient(to right, #fef3c7, #fff7ed, #fef3c7);
+  --jm-step-grad: linear-gradient(90deg, #4096ff, #7db74b, #ffcc00);
+  --jm-ring-grad: linear-gradient(120deg, #e0559b, #5856d6, #4096ff, #7db74b, #ffcc00);
+  --jm-radius: 16px;
+  --jm-radius-lg: 24px;
+  --jm-font: var(--font-jm-sans), Roboto, Arial, Helvetica, sans-serif;
+  --jm-shadow: 0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.04);
+  --jm-shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.1), 0 8px 10px rgba(0, 0, 0, 0.04);
+
+  background: var(--jm-bg);
+  color: var(--jm-ink);
+  font-family: var(--jm-font);
+  font-size: 17px;
+  line-height: 1.55;
+  min-block-size: 100svh;
+  overflow-x: clip;
+}
+
+.jm-root *,
+.jm-root *::before,
+.jm-root *::after {
+  box-sizing: border-box;
+}
+
+.jm-root h1,
+.jm-root h2,
+.jm-root h3 {
+  margin: 0;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.jm-root p {
+  margin: 0;
+}
+
+.jm-root a {
+  color: inherit;
+}
+
+.jm-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.jm-root .jm-skip {
+  color: #fff;
+  position: absolute;
+  inset-inline-start: 12px;
+  top: -48px;
+  z-index: 60;
+  background: var(--jm-ink);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.jm-skip:focus-visible {
+  top: 12px;
+}
+
+.jm-root :focus-visible {
+  outline: 3px solid var(--jm-blue);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* two-tone headline accents */
+.jm-green {
+  color: var(--jm-green);
+}
+
+.jm-green-strong {
+  color: var(--jm-green-deep);
+  font-weight: 800;
+}
+
+.jm-orange {
+  color: var(--jm-orange);
+}
+
+.jm-underlined {
+  position: relative;
+  display: inline-block;
+}
+
+.jm-squiggle {
+  position: absolute;
+  inset-inline: 0;
+  bottom: -0.28em;
+  width: 100%;
+  height: 0.22em;
+  overflow: visible;
+}
+
+/* section headline pattern: 800 centered + gray sub */
+.jm-how h2,
+.jm-builds h2,
+.jm-why h2,
+.jm-faq h2 {
+  font-size: clamp(30px, 4.6vw, 48px);
+  text-align: center;
+  padding-inline: 20px;
+}
+
+.jm-sub {
+  text-align: center;
+  color: var(--jm-gray);
+  margin-top: 14px;
+  padding-inline: 20px;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.jm-btn-cream,
+.jm-btn-dark,
+.jm-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.jm-btn-cream {
+  background-image: var(--jm-cream-grad);
+  color: var(--jm-ink);
+  padding: 16px 34px;
+  border-radius: var(--jm-radius-lg);
+  box-shadow: var(--jm-shadow-lg);
+  font-size: 17px;
+}
+
+.jm-root .jm-btn-dark {
+  background: var(--jm-ink);
+  color: #fff;
+  padding: 15px 32px;
+  border-radius: 12px;
+  box-shadow: var(--jm-shadow);
+  font-size: 16px;
+}
+
+.jm-btn-outline {
+  border: 2px solid var(--jm-ink);
+  border-radius: 10px;
+  padding: 9px 20px;
+  font-size: 15px;
+  color: var(--jm-ink);
+  background: transparent;
+}
+
+.jm-btn-cream:hover,
+.jm-btn-dark:hover {
+  transform: translateY(-2px);
+}
+
+.jm-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+/* the close-band dark pill with the colorful gradient ring */
+.jm-root .jm-btn-ring {
+  position: relative;
+  border-radius: 999px;
+  background:
+    linear-gradient(var(--jm-ink), var(--jm-ink)) padding-box,
+    var(--jm-ring-grad) border-box;
+  border: 2.5px solid transparent;
+}
+
+/* ── Nav ─────────────────────────────────────────────────────── */
+.jm-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--jm-yellow);
+  box-shadow: 0 2px 6px rgba(17, 24, 39, 0.12);
+}
+
+.jm-nav-inner {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 20px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.jm-brand {
+  text-decoration: none;
+  align-self: stretch;
+  display: flex;
+  align-items: stretch;
+}
+
+/* the white arched bubble the logo sits in */
+.jm-brand-bubble {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #fff;
+  padding: 6px 22px 10px;
+  border-radius: 0 0 26px 26px;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 4px 10px rgba(17, 24, 39, 0.1);
+}
+
+.jm-brand-bar {
+  color: var(--jm-ink);
+}
+
+.jm-brand-for {
+  color: var(--jm-green);
+  display: inline-flex;
+  align-items: center;
+}
+
+.jm-eyes {
+  width: 30px;
+  height: 17px;
+  margin-inline: 1px;
+  transform: translateY(1px);
+}
+
+.jm-nav-links {
+  display: flex;
+  gap: 22px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.jm-nav-links a {
+  text-decoration: none;
+  padding: 6px 2px;
+}
+
+.jm-nav-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.jm-nav-cta {
+  margin-inline-start: auto;
+}
+
+/* ── Hero ────────────────────────────────────────────────────── */
+.jm-hero {
+  position: relative;
+  background:
+    radial-gradient(52% 60% at 72% 52%, rgba(255, 204, 0, 0.22), transparent 70%),
+    linear-gradient(180deg, #fffdf4, var(--jm-bg));
+  padding: 76px 20px 90px;
+  overflow: clip;
+}
+
+.jm-confetti span {
+  position: absolute;
+  width: 12px;
+  height: 7px;
+  border-radius: 2px;
+  opacity: 0.9;
+}
+
+.jm-hero-inner {
+  max-width: 1180px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.jm-hero-copy h1 {
+  font-size: clamp(36px, 5.4vw, 56px);
+}
+
+.jm-hero-copy > p {
+  margin-top: 26px;
+  max-width: 46ch;
+  color: var(--jm-ink-soft);
+  font-size: 18px;
+}
+
+.jm-hero-cta {
+  margin-top: 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.jm-hero-cta small {
+  color: var(--jm-gray);
+  font-size: 13.5px;
+  align-self: center;
+}
+
+/* the two "video call" cards */
+.jm-hero-cards {
+  position: relative;
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.jm-hero-cards::before {
+  content: '';
+  position: absolute;
+  inset: -12% -6%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 214, 90, 0.5), transparent 72%);
+  border-radius: 50%;
+}
+
+.jm-call-card {
+  position: relative;
+  width: min(46%, 240px);
+  border-radius: 14px;
+  border: 2.5px solid var(--jm-green);
+  overflow: hidden;
+  box-shadow: var(--jm-shadow-lg);
+  background: #fff;
+}
+
+.jm-call-card svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.jm-call-a {
+  transform: rotate(-2.2deg) translateY(8px);
+}
+
+.jm-call-b {
+  transform: rotate(1.8deg) translateY(-6px);
+}
+
+.jm-call-tag {
+  position: absolute;
+  bottom: 9px;
+  inset-inline-start: 9px;
+  background: rgba(17, 24, 39, 0.85);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+/* ── Privacy strip ───────────────────────────────────────────── */
+.jm-privacy {
+  background: #f4f4f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 20px;
+  color: var(--jm-ink-soft);
+  font-size: 14.5px;
+  text-align: center;
+}
+
+.jm-privacy svg {
+  width: 19px;
+  height: 19px;
+  flex: none;
+}
+
+.jm-privacy strong {
+  color: var(--jm-ink);
+}
+
+/* ── How Bar works ───────────────────────────────────────────── */
+.jm-how {
+  padding: 96px 20px 72px;
+  background:
+    radial-gradient(40% 50% at 8% 40%, rgba(64, 150, 255, 0.08), transparent 70%),
+    radial-gradient(46% 56% at 94% 88%, rgba(249, 115, 22, 0.08), transparent 70%),
+    var(--jm-bg);
+}
+
+.jm-steps {
+  position: relative;
+  max-width: 980px;
+  margin: 64px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px;
+}
+
+.jm-steps-line {
+  position: absolute;
+  top: 52px;
+  inset-inline: 12%;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--jm-step-grad);
+  opacity: 0.75;
+}
+
+.jm-step {
+  position: relative;
+  text-align: center;
+  padding-inline: 8px;
+}
+
+.jm-step-tile {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  margin-inline: auto;
+  border-radius: 26px;
+  display: grid;
+  place-items: center;
+  border: 2.5px solid;
+  background: #fff;
+  box-shadow: var(--jm-shadow);
+}
+
+.jm-step-tile svg {
+  width: 46px;
+  height: 46px;
+}
+
+.jm-step-n {
+  position: absolute;
+  top: -12px;
+  inset-inline-end: -12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2.5px solid;
+  border-color: inherit;
+  color: inherit;
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.jm-step-blue .jm-step-tile {
+  color: var(--jm-blue);
+  border-color: var(--jm-blue);
+  background: linear-gradient(160deg, #eef5ff, #ffffff);
+}
+
+.jm-step-green .jm-step-tile {
+  color: var(--jm-green-deep);
+  border-color: var(--jm-green);
+  background: linear-gradient(160deg, #f0f8e8, #ffffff);
+}
+
+.jm-step-yellow .jm-step-tile {
+  color: #b78900;
+  border-color: var(--jm-yellow);
+  background: linear-gradient(160deg, #fff8e0, #ffffff);
+}
+
+.jm-step h3 {
+  margin-top: 22px;
+  font-size: 21px;
+}
+
+.jm-step-blue .jm-step-accent {
+  color: var(--jm-blue);
+}
+
+.jm-step-green .jm-step-accent {
+  color: var(--jm-green-deep);
+}
+
+.jm-step-yellow .jm-step-accent {
+  color: #d9a400;
+}
+
+.jm-step p {
+  margin-top: 10px;
+  color: var(--jm-gray);
+  font-size: 15.5px;
+  max-width: 30ch;
+  margin-inline: auto;
+}
+
+.jm-badge {
+  width: fit-content;
+  margin: 56px auto 0;
+  background: #fff;
+  border-radius: 999px;
+  padding: 14px 30px;
+  box-shadow: var(--jm-shadow);
+  font-size: 15.5px;
+  text-align: center;
+}
+
+/* ── Sample Builds ───────────────────────────────────────────── */
+.jm-builds {
+  padding: 88px 20px 84px;
+  background: #f3f2f7;
+}
+
+.jm-shelf {
+  list-style: none;
+  margin: 52px auto 0;
+  padding: 0;
+  max-width: 1080px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(178px, 1fr));
+  gap: 22px;
+}
+
+.jm-book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: var(--jm-card);
+  border: 1px solid #e8e6ef;
+  border-radius: 12px;
+  padding: 14px 14px 16px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(17, 24, 39, 0.05);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  height: 100%;
+}
+
+.jm-book:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--jm-shadow-lg);
+}
+
+.jm-cover {
+  width: 100%;
+  height: auto;
+  border: 1px solid #eceae2;
+  border-radius: 8px;
+}
+
+.jm-book-name {
+  margin-top: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+}
+
+.jm-book-tag {
+  color: var(--jm-gray);
+  font-size: 12.5px;
+  text-align: center;
+}
+
+.jm-builds-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 46px;
+}
+
+/* ── Why (comparison pair) ───────────────────────────────────── */
+.jm-why {
+  padding: 92px 20px 88px;
+  background:
+    radial-gradient(42% 60% at 6% 10%, rgba(88, 86, 214, 0.07), transparent 70%),
+    radial-gradient(48% 60% at 96% 90%, rgba(125, 183, 75, 0.1), transparent 70%),
+    #fffefb;
+}
+
+.jm-compare {
+  max-width: 1020px;
+  margin: 52px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.jm-compare-card {
+  border-radius: var(--jm-radius);
+  padding: 30px 32px 34px;
+  border: 1.5px solid;
+  box-shadow: var(--jm-shadow);
+}
+
+.jm-compare-card h3 {
+  font-size: 20px;
+}
+
+.jm-compare-card p {
+  margin-top: 14px;
+  color: var(--jm-ink-soft);
+  font-size: 15.5px;
+}
+
+.jm-compare-orange {
+  border-color: #f7b16b;
+  background: linear-gradient(155deg, #fff6ec, #fffdf8);
+}
+
+.jm-compare-green {
+  border-color: var(--jm-green);
+  background: linear-gradient(155deg, #f2f9ea, #fdfff9);
+}
+
+/* ── FAQ ─────────────────────────────────────────────────────── */
+.jm-faq {
+  padding: 92px 20px 96px;
+  background: var(--jm-bg);
+}
+
+.jm-faq-grid {
+  max-width: 1020px;
+  margin: 56px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.jm-faq-card {
+  --jm-faq-tone: var(--jm-green);
+  border-radius: 14px;
+  border-top: 5px solid var(--jm-faq-tone);
+  padding: 26px 30px 30px;
+  box-shadow: var(--jm-shadow);
+  background:
+    linear-gradient(165deg, color-mix(in srgb, var(--jm-faq-tone) 7%, #fff), #fff 60%);
+}
+
+.jm-faq-card h3 {
+  font-size: 19px;
+}
+
+.jm-faq-card p {
+  margin-top: 12px;
+  color: var(--jm-ink-soft);
+  font-size: 15.5px;
+}
+
+/* ── Close: the yellow typewriter band ───────────────────────── */
+.jm-close {
+  position: relative;
+  background:
+    radial-gradient(46% 70% at 18% 68%, rgba(255, 236, 150, 0.55), transparent 70%),
+    var(--jm-yellow);
+  padding: 130px 20px 140px;
+  overflow: clip;
+  text-align: center;
+}
+
+.jm-chip {
+  position: absolute;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 14px rgba(17, 24, 39, 0.14);
+  animation: jm-drift ease-in-out infinite alternate;
+}
+
+.jm-chip svg {
+  width: 62%;
+  height: 62%;
+}
+
+@keyframes jm-drift {
+  from {
+    transform: translateY(-9px) rotate(-4deg);
+  }
+  to {
+    transform: translateY(9px) rotate(5deg);
+  }
+}
+
+.jm-close-inner {
+  position: relative;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.jm-close-h {
+  font-size: clamp(34px, 5vw, 54px);
+  min-height: 1.2em;
+}
+
+.jm-close-accent {
+  color: var(--jm-green-deep);
+}
+
+.jm-caret {
+  display: inline-block;
+  width: 0.09em;
+  height: 0.95em;
+  margin-inline-start: 3px;
+  background: var(--jm-ink);
+  vertical-align: -0.12em;
+  animation: jm-blink 0.85s steps(2) infinite;
+}
+
+@keyframes jm-blink {
+  to {
+    opacity: 0;
+  }
+}
+
+.jm-close-sub {
+  margin-top: 22px;
+  font-size: 18px;
+  color: var(--jm-ink);
+}
+
+.jm-close .jm-btn-ring {
+  margin-top: 36px;
+}
+
+.jm-close-micro {
+  margin-top: 16px;
+  font-size: 13.5px;
+  color: rgba(17, 24, 39, 0.75);
+}
+
+.jm-close-micro a {
+  font-weight: 700;
+}
+
+/* ── Footer ──────────────────────────────────────────────────── */
+.jm-footer {
+  background: var(--jm-ink);
+  color: #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 22px clamp(20px, 5vw, 64px);
+  font-size: 13.5px;
+}
+
+.jm-footer nav {
+  display: flex;
+  gap: 22px;
+}
+
+.jm-footer a {
+  color: #e5e7eb;
+  text-decoration: none;
+}
+
+.jm-footer a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ── Reveal-on-scroll (gated below) ──────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  .jm-root [data-reveal] {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .jm-root [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jm-chip {
+    animation: none;
+  }
+
+  .jm-btn-cream,
+  .jm-btn-dark,
+  .jm-book {
+    transition: none;
+  }
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 940px) {
+  .jm-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .jm-hero-copy {
+    text-align: center;
+  }
+
+  .jm-hero-copy > p {
+    margin-inline: auto;
+  }
+
+  .jm-hero-cta {
+    align-items: center;
+  }
+
+  .jm-steps {
+    grid-template-columns: 1fr;
+    gap: 44px;
+    max-width: 420px;
+  }
+
+  .jm-steps-line {
+    display: none;
+  }
+
+  .jm-compare,
+  .jm-faq-grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 640px) {
+  .jm-nav-links {
+    display: none;
+  }
+
+  .jm-nav-inner {
+    height: 56px;
+    gap: 14px;
+  }
+
+  .jm-brand-bubble {
+    font-size: 18px;
+    padding: 5px 16px 8px;
+  }
+
+  .jm-eyes {
+    width: 26px;
+    height: 15px;
+  }
+
+  .jm-hero {
+    padding: 56px 16px 64px;
+  }
+
+  .jm-hero-cards {
+    min-height: 0;
+  }
+
+  .jm-call-card {
+    width: min(48%, 200px);
+  }
+
+  .jm-shelf {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .jm-close {
+    padding: 96px 16px 104px;
+  }
+
+  .jm-chip {
+    opacity: 0.55;
+  }
+
+  .jm-footer {
+    justify-content: center;
+    text-align: center;
+  }
+}

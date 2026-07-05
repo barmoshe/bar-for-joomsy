@@ -1,0 +1,18 @@
+/* Minimal document base. The page surface is painted by `.joomsy-root` in
+   src/marketing/joomsy/joomsy.css; here we only zero the document margins
+   and set Joomsy's warm near-white behind the app so there is no flash
+   before the React tree mounts. */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: #fdfcf8; /* --jm-bg */
+  color-scheme: light;
+}
+
+body {
+  min-height: 100svh;
+}
