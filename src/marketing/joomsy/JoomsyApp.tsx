@@ -627,9 +627,9 @@ export default function JoomsyApp() {
               </h1>
               <p>
                 I build Joomsy every day as its full-stack engineer. This page
-                is a mock: the same working-site-instead-of-a-CV pattern I send
-                everyone else, rebuilt in your brand, for fun. Real projects,
-                live links, plain words.
+                is a mock: the same build-it-instead-of-writing-it-up trick I
+                pull for other companies, rebuilt in your brand, for fun. Real
+                projects, live links, plain words.
               </p>
               <div className="jm-hero-cta">
                 <a className="jm-btn-cream" href="#jm-builds">

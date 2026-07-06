@@ -23,7 +23,7 @@ const sans = Roboto({
 // Noindex, a shareable demo link.
 const ogTitle = "Bar Moshe × Joomsy — a mock application, in your brand";
 const ogDescription =
-  "Bar Moshe, 'applying' to Joomsy, where he already builds the product. A demo of the working-site-instead-of-CV pattern, in Joomsy's own visual language. Real shipped work, live links.";
+  "Bar Moshe, 'applying' to Joomsy, where he already builds the product: a demo of the build-it-instead-of-writing-it-up trick he pulls everywhere else, in Joomsy's own visual language.";
 
 export const metadata: Metadata = {
   title: ogTitle,

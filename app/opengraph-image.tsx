@@ -107,7 +107,7 @@ export default function Image() {
             }}
           >
             Bar Moshe already builds Joomsy. This is how he applies everywhere
-            else: a working site instead of a CV, in your brand.
+            else: he builds the thing instead of writing about it, in your brand.
           </div>
         </div>
 
